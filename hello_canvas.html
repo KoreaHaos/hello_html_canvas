@@ -9,12 +9,13 @@
     <h1>Step 1 : Hello HTML Canvas</h1>
 
     <div>
-        <h2>My First Canvas 1.9</h2>
+        <h2>My First Canvas 1.91</h2>
         <div>
             <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
                 Your browser does not support the HTML5 canvas tag.
             </canvas>
             <script>
+                var x = test;
                 var canvasElement = document.getElementById("myCanvas");
                 var context = canvasElement.getContext("2d");
                 context.fillStyle = "#FF0000";
@@ -22,7 +23,7 @@
                 context.moveTo(0,0);
                 context.lineTo(200,100);
                 context.stroke();
-                console.log(5 + 6);
+                console.log("Var x = " + x);
             </script>
         </div>
     </div>
