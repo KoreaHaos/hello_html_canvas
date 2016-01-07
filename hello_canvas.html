@@ -15,13 +15,13 @@
                 Your browser does not support the HTML5 canvas tag.
             </canvas>
             <script>
-                var c = document.getElementById("myCanvas");
-                var ctx = c.getContext("2d");
-                ctx.fillStyle = "#FF0000";
-                ctx.fillRect(0, 0, 150, 75);
-                ctx.moveTo(0,0);
-                ctx.lineTo(200,100);
-                ctx.stroke();
+                var canvasElement = document.getElementById("myCanvas");
+                var context = canvasElement.getContext("2d");
+                context.fillStyle = "#FF0000";
+                context.fillRect(0, 0, 150, 75);
+                context.moveTo(0,0);
+                context.lineTo(200,100);
+                context.stroke();
             </script>
         </div>
     </div>
