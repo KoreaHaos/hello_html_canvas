@@ -9,13 +9,13 @@
     <h1>Step 1.1 : Hello HTML Canvas</h1>
 
     <div>
-        <h2>My First Canvas with an Image! 0.1</h2>
+        <h2>My First Canvas with an Image! 0.2</h2>
         <div>
             <p>Image to use:</p>
             <img id="seoul_ngt_mrk_sct" src="img/seoul_night_market_scooter.jpg" alt="A Seoul Night Market With a Scooter" width="750" height="250">
 
             <p>Canvas to fill:</p>
-            <canvas id="myCanvas" width="750" height="250" style="border:1px solid #d3d3d3;">
+            <canvas id="myCanvas" width="750" height="250" style="border:5px solid #d3d3d3;">
                 Your browser does not support the HTML5 canvas tag.</canvas>
 
             <p>
@@ -27,7 +27,7 @@
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
                     var img = document.getElementById("seoul_ngt_mrk_sct");
-                    ctx.drawImage(img, 0, 0);
+                    ctx.drawImage(img, 0, 0, 750, 250);
                 }
             </script>
 
