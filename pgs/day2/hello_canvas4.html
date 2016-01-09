@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas Size Experiment 2</title>
+
+</head>
+
+<body>
+    <h1>Hello HTML Canvas</h1>
+
+    <div>
+        <h2>Canvas Size Experiment 2</h2>
+        <div>
+            <img id="seoul_ngt_mrk_sct" src="../../img/seoul_night_market_scooter.jpg" alt="A Seoul Night Market With a Scooter" width="0" height="0">
+
+            <button onclick="myCanvasModButton()">Try it</button>
+            <div id="button_data"></div>
+            <div id="canvas_scripted"></div>
+
+            <script>
+                var num_clicks = 0;
+                var num_sizes = 1;
+                var can_max_width = 750;
+                var can_max_height = 250;
+                // pulled from : https://andylangton.co.uk/blog/development/get-viewportwindow-size-width-and-height-javascript
+                // Led to by : http://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window
+                var win = window;
+                var doc = document;
+                var doc_element = doc.documentElement;
+                var body_element = doc.getElementsByTagName('body')[0];
+                var browser_width = win.innerWidth||doc_element.clientWidth||body_element.clientWidth;
+                var browser_height = win.innerHeight||doc.clientHeight||body_element.clientHeight;
+
+                function myCanvasModButton() {
+                    var divisor = (num_clicks % num_sizes) + 1;
+                    var can_width = can_max_width;
+                    var can_height = can_max_height;
+                    var win_width = browser_width;
+                    var win_height = browser_height;
+                    num_clicks++;
+                    can_width = can_width / divisor;
+                    can_height = can_height / divisor;
+                    //displayScriptedCanvas(can_width, can_height, document.getElementById("seoul_ngt_mrk_sct"));
+                    var button_data_string = "<br>";
+                    button_data_string += "num_clicks = " + num_clicks + "<br>";
+                    button_data_string += "divisor = " + divisor + "<br>";
+                    button_data_string += "can_width = " + can_width + "<br>";
+                    button_data_string += "can_height = " + can_height + "<br>";
+                    button_data_string += "win_width = " + win_width + "<br>";
+                    button_data_string += "win_height = " + win_height + "<br>";
+                    document.getElementById("button_data").innerHTML = button_data_string + "<br>";
+                }
+
+                function displayScriptedCanvas(can_wid_in, can_hgt_in, can_img_in) {
+                    var scripted_canvas_string="";
+                    scripted_canvas_string+="<canvas id=\"canvas_size_experiment\" width=" + can_wid_in;
+                    scripted_canvas_string+=" height=" + can_hgt_in;
+                    scripted_canvas_string+=" style=\"border:5px solid #000000;\">";
+                    
+                    document.getElementById("canvas_scripted").innerHTML = scripted_canvas_string;
+                    var can_element = document.getElementById("canvas_size_experiment");
+                    var can_context = can_element.getContext("2d");
+                    can_context.drawImage(can_img_in, 0, 0, can_wid_in, can_hgt_in);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
